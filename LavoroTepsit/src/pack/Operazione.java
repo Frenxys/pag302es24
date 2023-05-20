@@ -7,14 +7,12 @@ public class Operazione {
 	private String descrizione;
 	private char tipo;
 	
-	public Operazione(float importo, double q, String d, char t, Terminale terminale)
+	public Operazione(float importo, int q, String d, char t)
 	{
 		setImporto(importo);
 		setQ(q);
 		setDescrizione(d);
 		setTipo(t);
-		
-		terminale.AddOperazione(importo, q, d);
 	}
 	
 	public void setImporto(float importo)
