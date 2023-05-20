@@ -51,4 +51,13 @@ public class Operazione {
 		return tipo;
 	}
 
+	@Override
+	public String toString() {
+		return "Operazione{" +
+				"importo=" + importo +
+				", quantità=" + q +
+				", descrizione='" + descrizione + '\'' +
+				", tipo=" + tipo +
+				'}';
+	}
 }
