@@ -74,13 +74,17 @@ package pack;
 	        reader.close();
 	    }
 	    public void scriviSuFile() throws IOException { //importo;quantita;descrizione;tipo
-	        BufferedWriter writer=new BufferedWriter(new FileWriter("operazioni.txt"));
-	        for(Operazione o:Terminale){
-	            writer.write(o.getImporto()+";"+o.getQ()+";"+o.getDescrizione()+";"+o.getTipo());
-	            writer.newLine();
-	        }
-	        writer.close();
-	    }
+			BufferedWriter writer = new BufferedWriter(new FileWriter("operazioni.txt"));
+			for (Operazione o : Terminale) {
+				writer.write(o.getImporto() + ";" + o.getQ() + ";" + o.getDescrizione() + ";" + o.getTipo());
+				writer.newLine();
+			}
+			writer.close();
+		}
+		public void visualizzaQuantitaValore(){
+			m.stampaProdotti();
+			m.stampaIncassi();
+		}
 
 	}
 

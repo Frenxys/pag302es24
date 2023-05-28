@@ -13,17 +13,19 @@ public class Main {
 		Scanner sc2= new Scanner(System.in);
 
 		System.out.println("Menu'");
-		System.out.println(" 1) visualizza operazione specifica \n 2) visualizza operazioni \n 3) crea operazione \n 4) elimina operazione");
+		System.out.println(" 1) visualizza operazione specifica \n 2) visualizza operazioni \n 3) crea operazione \n 4) elimina operazione\nvisualizza quantità valore");
 		System.out.print("Inserisci cosa vuoi fare: ");
 		int scelta= sc.nextInt();
 		switch(scelta) {
-		case 1:
-			System.out.println("Inserisci descrizione prodotto:"); 
-			String d= sc2.nextLine();
-			t.visualizzaOperazione(d);break;
-		case 2: t.visualizzaOperazioni();break;
-		case 3: t.creaOperazione();break;
-		case 4: t.eliminaOperazione();break;
+			case 1:
+				System.out.println("Inserisci descrizione prodotto:");
+				String d= sc2.nextLine();
+				t.visualizzaOperazione(d);break;
+			case 2: t.visualizzaOperazioni();break;
+			case 3: t.creaOperazione();break;
+			case 4: t.eliminaOperazione();break;
+			case 5: t.visualizzaQuantitaValore();break;
+
 		}
 	}
 }

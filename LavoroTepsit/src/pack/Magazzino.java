@@ -11,7 +11,11 @@ public class Magazzino {
 	{
 		
 	}
-	
+
+	public LinkedList<Prodotto> getMagazzino() {
+		return Magazzino;
+	}
+
 	public void setIncassi(double i)
 	{
 		incassi = i;
@@ -83,4 +87,5 @@ public class Magazzino {
  			}
 		}
 	}
+
 }
