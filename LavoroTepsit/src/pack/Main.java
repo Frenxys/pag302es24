@@ -1,17 +1,29 @@
 package pack;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
-
+	
 	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
 
 		Terminale t=new Terminale();
+		Scanner sc= new Scanner(System.in);
+		Scanner sc2= new Scanner(System.in);
 
-		//t.visualizzaOperazione("ciao");
-		//t.eliminaOperazione();
-		t.visualizzaOperazioni();
-
+		System.out.println("Menu'");
+		System.out.println(" 1) visualizza operazione specifica \n 2) visualizza operazioni \n 3) crea operazione \n 4) elimina operazione");
+		System.out.print("Inserisci cosa vuoi fare: ");
+		int scelta= sc.nextInt();
+		switch(scelta) {
+		case 1:
+			System.out.println("Inserisci descrizione prodotto:"); 
+			String d= sc2.nextLine();
+			t.visualizzaOperazione(d);break;
+		case 2: t.visualizzaOperazioni();break;
+		case 3: t.creaOperazione();break;
+		case 4: t.eliminaOperazione();break;
+		}
 	}
-
 }
