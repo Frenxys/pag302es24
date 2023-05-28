@@ -34,5 +34,9 @@ public class Prodotto {
 	{
 		q+=i;
 	}
+	public void sub(int i)
+	{
+		q-=i;
+	}
 
 }

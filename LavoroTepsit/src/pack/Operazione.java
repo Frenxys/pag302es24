@@ -1,6 +1,6 @@
 package pack;
 
-public class Operazione {
+public class Operazione { //importo;quantita;descrizione;tipo
 	
 	private float importo;
 	private int q; //quantità

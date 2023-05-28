@@ -1,15 +1,17 @@
 package pack;
 
+import java.io.IOException;
+
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		Terminale t=new Terminale();
-		t.creaOperazione(new Operazione(3,3,"ciao",'e'));
-		t.creaOperazione(new Operazione(2,1,"ciao2",'u'));
-		t.visualizzaOperazione("ciao");
-		t.eliminaOperazione();
+
+		//t.visualizzaOperazione("ciao");
+		//t.eliminaOperazione();
 		t.visualizzaOperazioni();
+
 	}
 
 }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Magazzino {
 	private final LinkedList <Prodotto> Magazzino = new LinkedList<>();
 	private static final Scanner sc= new Scanner(System.in);
-	private double incassi;
+	private double incassi=0; //di base gli incassi sono 0, l'azienda può andare in negativo contando i debiti
 	
 	public Magazzino()
 	{
@@ -20,6 +20,7 @@ public class Magazzino {
 	{
 		return incassi;
 	}
+
 	
 	public void add(Prodotto p)
 	{
@@ -44,36 +45,41 @@ public class Magazzino {
 	{
 		if (o.getTipo() == 'e')
 		{
-			entrata(o.getDescrizione(), o.getImporto(), o.getQ());
+			entrata(o);
 		}
 		else
 		{
-			uscita(o.getDescrizione(), o.getImporto(), o.getQ());
+			uscita(o);
 		}
 	}
-	
-	public void entrata(String d, double i, int q)
+
+	public void entrata(Operazione o) //comprare
 	{
-		setIncassi(getIncassi()-i);
-		
+		incassi-=o.getImporto();
 		for (Prodotto p:Magazzino)
 		{
-			if(p.getDescrizione().equals(d))
+			if(p.getDescrizione().equals(o.getDescrizione())) //controllo descrizione prodotto
 			{
-				p.add(q);
+				p.add(o.getQ());
+			}else{
+				Magazzino.add(new Prodotto(o.getQ(),o.getDescrizione()));
 			}
 		}
 	}
 	
-	public void uscita(String d, double i, int q)
+	public void uscita(Operazione o) //vendere
 	{
-		setIncassi(getIncassi()+i);
-		
+		incassi+=o.getImporto();
 		for (Prodotto p:Magazzino)
 		{
-			if(p.getDescrizione().equals(d) && p.getQ()<=q)
+			if(p.getDescrizione().equals(o.getDescrizione())) //controllo descrizione prodotto
 			{
-				
+				if(p.getQ()<=o.getQ()){
+						System.out.println("non abbiamo più prodotti");
+						Magazzino.remove(p);
+				}else{
+					p.sub(o.getQ());
+				}
  			}
 		}
 	}
