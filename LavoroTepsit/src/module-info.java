@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author SCHOOL
- *
- */
-module LavoroTepsit {
-}

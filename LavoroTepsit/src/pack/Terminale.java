@@ -62,7 +62,7 @@ package pack;
 	        }
 	    }
 	    public void caricaDaFile() throws IOException { //importo;quantita;descrizione;tipo
-	        BufferedReader reader=new BufferedReader(new FileReader("operazioni.txt"));
+	        BufferedReader reader=new BufferedReader(new FileReader("operazioni.csv"));
 	        String linea;
 	        while((linea=reader.readLine())!=null){
 	            String[] lineasplit=linea.split(";");
@@ -74,7 +74,7 @@ package pack;
 	        reader.close();
 	    }
 	    public void scriviSuFile() throws IOException { //importo;quantita;descrizione;tipo
-			BufferedWriter writer = new BufferedWriter(new FileWriter("operazioni.txt"));
+			BufferedWriter writer = new BufferedWriter(new FileWriter("operazioni.csv"));
 			for (Operazione o : Terminale) {
 				writer.write(o.getImporto() + ";" + o.getQ() + ";" + o.getDescrizione() + ";" + o.getTipo());
 				writer.newLine();
