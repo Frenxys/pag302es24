@@ -10,7 +10,15 @@ public class Prodotto {
 		setDescrizione(d);
 	}
 
-	public int getQ() 
+	@Override
+	public String toString() {
+		return
+				"quantità=" + q +
+				", descrizione='" + descrizione + '\'' +
+				'}';
+	}
+
+	public int getQ()
 	{
 		return q;
 	}

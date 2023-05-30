@@ -12,11 +12,12 @@ public class Main {
 		Scanner sc= new Scanner(System.in);
 		Scanner sc2= new Scanner(System.in);
 
-		System.out.println("Menu'");
-		System.out.println(" 1) visualizza operazione specifica \n 2) visualizza operazioni \n 3) crea operazione \n 4) elimina operazione\n5)visualizza quantità valore\n0)exit");
-		System.out.print("Inserisci cosa vuoi fare: ");
+
 		int scelta=0;
 		do{
+			System.out.println("Menu'");
+			System.out.println("1) visualizza operazione specifica \n2) visualizza operazioni\n3) crea operazione\n4) elimina operazione\n5)visualizza quantità valore\n0)exit");
+			System.out.print("Inserisci cosa vuoi fare: ");
 			scelta= sc.nextInt();
 			switch(scelta) {
 				case 1:

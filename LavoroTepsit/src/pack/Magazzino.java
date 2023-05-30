@@ -33,9 +33,11 @@ public class Magazzino {
 	
 	public void stampaProdotti()
 	{
+
+		System.out.println(Magazzino.size());
 		for (Prodotto p:Magazzino)
 		{
-			System.out.println("Prodotto "+Magazzino.indexOf(p)+")\n"+p);
+			System.out.println("Prodotto "+Magazzino.indexOf(p)+")"+p);
 			
 		}
 	}
@@ -44,9 +46,9 @@ public class Magazzino {
 	{
 		System.out.println("Incassi TOT = "+getIncassi());
 	}
-	
 	public void modifica(Operazione o)
 	{
+		//System.out.println(o.getTipo());
 		if (o.getTipo() == 'e')
 		{
 			entrata(o);
@@ -60,20 +62,29 @@ public class Magazzino {
 	public void entrata(Operazione o) //comprare
 	{
 		incassi-=o.getImporto();
-		for (Prodotto p:Magazzino)
-		{
-			if(p.getDescrizione().equals(o.getDescrizione())) //controllo descrizione prodotto
-			{
-				p.add(o.getQ());
-			}else{
+			boolean aggiungi=true;
+			for (Prodotto p:Magazzino) {
+				if (p.getDescrizione().equals(o.getDescrizione())) //controllo descrizione prodotto
+				{
+
+					p.add(o.getQ());
+					aggiungi=false;
+					break;
+
+				}
+			}
+			if(aggiungi){
 				Magazzino.add(new Prodotto(o.getQ(),o.getDescrizione()));
 			}
-		}
+
+
+
 	}
 	
 	public void uscita(Operazione o) //vendere
 	{
 		incassi+=o.getImporto();
+
 		for (Prodotto p:Magazzino)
 		{
 			if(p.getDescrizione().equals(o.getDescrizione())) //controllo descrizione prodotto
@@ -81,9 +92,12 @@ public class Magazzino {
 				if(p.getQ()<=o.getQ()){
 						System.out.println("non abbiamo più prodotti");
 						Magazzino.remove(p);
+
 				}else{
 					p.sub(o.getQ());
+
 				}
+				break;
  			}
 		}
 	}
